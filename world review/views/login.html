@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+  <title>Login</title>
+
+  <style>
+    body {
+      background-image: linear-gradient(135deg, #ffa51f 10%, #f8489a 100%);
+
+
+
+
+      background-size: cover;
+    }
+
+    canvas {
+      position: absolute;
+      width: 1204px;
+      height: 826px;
+      left: 118px;
+      top: 99px;
+      background-color: rgb(115, 77, 27);
+    }
+
+
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+
+    #example1 {
+
+
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+
+    .font1 {
+      font-family: 'Inter';
+      font-size: 48px;
+      color: #000000;
+      font-weight: bold;
+    }
+
+
+    .font_create {
+      font-family: 'Inter';
+      font-size: 44px;
+      color: black;
+      font-weight: bold;
+
+    }
+
+    .font_normal {
+      font-family: 'Inter';
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 200;
+
+    }
+
+    .font_login {
+      font-family: 'Inter';
+      font-size: 15px;
+      color: #1F70BA;
+      font-weight: bold;
+
+    }
+
+
+    .font_form {
+      font-family: 'Inter';
+      font-size: 15px;
+      color: dark;
+    }
+
+
+    .input_box {
+      border: 2px solid red;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    .bg-image {
+      /* The image used */
+      background-image: url("pic.jpg");
+
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .font_pic {
+      font-family: 'Inter';
+      font-size: 40px;
+      color: #ffffff;
+      font-weight: bold;
+
+    }
+
+    .text_login {
+      position: absolute;
+      top: 65%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container-sm">
+    <div class="card  " style=" margin-top: 10%; margin-bottom: 10%;">
+      <div class="row">
+        <div class="col-sm-7">
+          <img class="card-img-right" src="/public/login_pic.png" id="example1">
+          <div class="text_login font_pic">
+            <p>“Please always think of us</p>
+            <p> before you make a purchase.”</p>
+            <p class="font_normal" style="margin-left: 20%;">โปรดคิดถึงเราทุกครั้งก่อนตัดสินใจเลือกซื้อของ</p>
+          </div>
+
+
+
+
+        </div>
+
+        <div class="col-sm-5 mt-2">
+          <img src="/public/logo.png" style="width: 10%; float: right; " class="me-3 mt-3">
+          <p class="font1 ms-4" style="margin-top: 20%; ">Log in</p>
+          <p class="ms-4">Let's get strated with your decide to purchase.</p>
+
+          <form id="formLogin">
+            <!-- action="/action_page.php" -->
+            <div class="mb-3 mt-5 me-5 ms-3">
+
+              <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+            </div>
+            <div class="mb-3 mt-2 me-5 ms-3">
+
+              <input type="password" class="form-control" id="password" placeholder="Password" name="=password">
+            </div>
+            <div class="form-check mb-3 ms-3">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn btn-dark ms-3 me-5" style="width: 90%; margin-top: 5%;" > <a href="/views/home.html"> Sign in</a> </button>
+
+
+            <!-- <a class="nav-link   " aria-current="page" href="register.html" style="margin-top: 50%; float: right; "
+             >Sign up</a> -->
+             <a class="nav-link"  href='register.html'  aria-current="page" style="margin-top: 50%; float: right; "> sign up </a>
+
+
+          </form>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+  <script>
+    function tohome(){
+     location.replace("/home.html");
+    }
+
+  </script>
+  <!-- <script>
+  const formLogin=document.querySelector('#formLogin');
+  formLogin.onsubmit=function(e){
+    e.preventDefault();
+
+    const Email =  formLogin.elements['email'].value;
+    const password = formLogin.elements['password'].value;
+
+    const options={
+      method:'POST',
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({"Email" : Email,"password":password}),
+
+    }
+    fetch('/login',options)
+        .then(function(response){
+          if(response.ok){
+            return response.text();
+    
+          }
+          throw Error("Wrong email or password");
+        })
+        .then(function(data){
+          location.replace(data);
+      
+        })
+        .catch(function(error){
+          Swal.fire({
+            "icon":"error",
+            "title":error
+          })
+        });
+    
+  }
+
+
+</script> -->
+
+
+</body>
+
+</html>

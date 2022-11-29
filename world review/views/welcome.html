@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+    <title>Welcome</title>
+</head>
+
+<body class="p-3">
+    <button class="btn btn-danger">Sign out</button>
+    <h1>Admin Page</h1>
+    <h3>user list</h3>
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-success" onclick="addUsers()">Add</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>email</th>
+                <th>password</th>
+            </tr>
+        </thead>
+        <tbody id="tblUsers">
+        </tbody>
+    </table>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" id="usersModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add/Edit user</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="formUsers">
+                        <label class="form-label">Firstname</label>
+                        <input type="text" name="fname" class="form-control mb-2" placeholder="firstname">
+                        <label class="form-label">lastname</label>
+                        <input type="text" name="lname" class="form-control mb-2" placeholder="lastname">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="uemail" class="form-control mb-3" placeholder="email">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="upassword" class="form-control mb-3" placeholder="password">
+                        <button type="submit" class="btn btn-success">OK</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('button').onclick = function() {
+            location.replace('/');
+        }
+        // add or edit methods
+        var action = 'add';
+        // edit user ID
+        var editID = 0;
+
+        // add modal
+        const usersModal = new bootstrap.Modal(document.querySelector('#usersModal'));
+        // get all users
+        getUsers();
+        //---------------GET PRODUCTS-----------------
+        function getUsers() {
+            // get users data from server
+            fetch('/users')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('no data');
+                })
+                .then(function (data) {
+                    let rows = '';
+                    data.forEach(function (user) {
+                        rows += `<tr><td>${user.id}</td>`;
+                        rows += `<td>${user.firstname}</td>`;
+                        rows += `<td>${user.lastname}</td>`;
+                        rows += `<td>${user.Email}</td>`;
+                        rows += `<td>${user.password}</td>`;
+                        rows += `<td><button class="btn btn-warning" onclick=editUsers(${JSON.stringify(user)})>Edit</button>`;
+                        rows += `<button class="btn btn-danger" onclick=deleteUsers(${user.id})>Delete</button></td></tr>`;
+                    });
+                    tblUsers.innerHTML = rows;
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+        }
+
+        // ---------------DELETE PRODUCT-----------------
+        function deleteUsers(id) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: "Sure to delete this user?",
+                showCancelButton: true,
+                confirmButtonText: 'Yes'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    fetch(`/users/${id}`, { method: 'DELETE' })
+                        .then(function (response) {
+                            if (response.ok) {
+                                // get updated data
+                                getUsers();
+                            }
+                        })
+                        .catch(function (err) {
+                            console.error(err);
+                            alert(err);
+                        });
+                }
+            });
+        }
+
+        // ---------------ADD NEW PRODUCT-----------------        
+        const formUsers = document.querySelector('#formUsers');
+        function addUsers() {
+            action = 'add';
+            formUsers.reset();
+            document.querySelector('h4.modal-title').innerText = 'Add new user';
+            usersModal.show();
+        }
+
+        // add or edit
+        formUsers.onsubmit = function (e) {
+            e.preventDefault();
+            usersModal.hide();
+            const fname = formUsers.elements['fname'].value;
+            const lname = formUsers.elements['lname'].value;
+            const uemail = formUsers.elements['uemail'].value;
+            const upassword = formUsers.elements['upassword'].value;
+            // add or update data
+            // default is 'add'
+            let url = '/users';
+            let httpMethod = 'POST';
+            let bodyContent = JSON.stringify(
+                { "firstname": fname, "lastname": lname, "Email": uemail, "password": upassword  }
+            );
+            if (action == 'edit') {
+                url = `/users/${editID}`;
+                httpMethod = 'PUT';
+                bodyContent = JSON.stringify(
+                    { "firstname": fname, "lastname": lname, "Email": uemail, "password": upassword  }
+                );
+            }
+
+            fetch(url, {
+                method: httpMethod,
+                headers: { "Content-Type": "application/json" },
+                body: bodyContent
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        formUsers.reset();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Add/Edit user successfully'
+                        })
+                            .then(function (result) {
+                                // get updated data
+                                getUsers();
+                            });
+                    }
+                    else {
+                        throw Error('Bad response');
+                    }
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+        }
+
+        //---------------EDIT PRODUCT-----------------
+        function editUsers(users) {
+            action = 'edit';
+            editID = users.id;
+            // console.log(users.name);
+            document.querySelector('h4.modal-title').innerText = 'Edit users';
+            document.querySelector('input[name="fname"]').value = users.firstname;
+            document.querySelector('input[name="lname"]').value = users.lname;
+            document.querySelector('input[name="uemail"]').value = users.Email;
+            document.querySelector('input[name="upassword"]').value = users.password;
+            // show modal
+            usersModal.show();
+        }
+
+    </script>
+</body>
+
+</html>

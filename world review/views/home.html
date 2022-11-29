@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <title>HOME</title>
+
+
+
+    <style>
+        hr {
+            margin: 1rem 0;
+            color: inherit;
+            background-color: currentColor;
+            border: 0;
+            opacity: 0.25;
+        }
+
+        .nav ul {
+            list-style: none;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav li {
+            font-size: 10px;
+            line-height: 40px;
+            text-align: left;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+            padding-left: 15px;
+            border-bottom: 1px solid #000;
+            transition: .3s;
+        }
+
+        .nav a:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        .nav li li {
+            font-size: .8em;
+        }
+
+        /* style menu for langer screens*/
+
+        @media screen and (min-width: 650px) {
+            .nav li {
+                width: 150px;
+                height: 50px;
+                border-bottom: none;
+                line-height: 50px;
+                font-size: 20px;
+                display: inline-block;
+                margin-right: -4px;
+                text-align: center;
+
+            }
+
+            .nav a {
+                border-bottom: none;
+
+            }
+
+            .nav ul li ul li {
+                text-align: left;
+            }
+
+            .nav ul li ul li ul {
+                left: 149px;
+                top: 0;
+                text-align: center;
+            }
+
+            .nav ul li> {
+                padding-left: 0;
+            }
+
+            /* sub */
+
+            .nav li ul {
+                position: absolute;
+                display: none;
+                width: inherit;
+            }
+
+            .nav ul li:focus-within>ul,
+            .nav ul li:hover>ul {
+                display: block;
+            }
+
+        }
+
+
+        .myButton {
+
+            cursor: pointer;
+            border: none;
+            width: 100px;
+            height: 100px;
+        }
+
+
+
+        .grid-container1 {
+            display: grid;
+            justify-content: space-evenly;
+            grid-template-columns: 80px 80px 80px;
+            gap: 50px;
+            padding: 10px;
+        }
+
+        .dropbtn {
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        .example1 {
+            border: 2px solid black;
+            padding: 25px;
+
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-color: #17202A;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-light ">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#">
+                <img src="/img/logo.png" class="ms-2 p-2 " height="15%" alt="MDB Logo" loading="lazy" />
+                <small style="color:black ;">WORLD REViEW</small>
+            </a>
+            <form class="d-flex ms-5" style="width:400px ;">
+                <input class="form-control me-2" type="text" placeholder="Search">
+                <button class="btn btn-dark" type="button" id="search">Search</button>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav">
+                <ul>
+                    <li class=""><a href="/home">Home</a></li>
+                    <li class=""><a href="#">Categories</a>
+                        <ul>
+                            <li><a href="#">IT Zone</a>
+                                <ul>
+                                    <li><a href="/sub_IT_phone">Phone</a></li>
+                                    <li><a href="#">Tablet</a></li>
+                                    <li><a href="#">Computer</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Cosmetic</a></li>
+                            <li><a href="#">Skincare</a></li>
+
+                            <li><a href="#">Other</a></li>
+                        </ul>
+                    </li>
+                    <li class="YOUR BLOG"><a class="active" href="/user">Your blog</a></li>
+                </ul>
+            </div>
+
+
+            <div>
+                <a class="" type="button" href="#" id="review_btn"><img src="/img/review_btn.png"></a>
+                <a class="" type="button" href="#" id="logout_btn"><img src="/img/logout_btn.png"></a>
+                <a class="me-1" type="button" href="#" id="profile_mini"><img src="/img/profile_mini.png"></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid example1">
+        <div class="text-center p-5">
+            <h1 style="color: white;  font-style:italic;">" PLEASE ALWAYS THINK OF US BEFORE YOU MAKE A PURCHASE " </h1>
+            <h5 style="color: white;" class="pt-2">by WORLD REViEW</h5>
+
+
+        </div>
+
+
+    </div>
+
+    <img src="/img/hot.png" class="pt-5 ps-5" style="width: 11%;">
+
+
+    <div id="blog_space" class="container-fluid d-flex flex-wrap"></div>
+    <div id="blog_space2" class="container-fluid d-flex flex-wrap pt-4"></div>
+
+
+    <!-- <script>
+        const blog_space = document.querySelector('#blog_space');
+        const blog_space2 = document.querySelector('#blog_space2');
+
+        getBlog_Apple();
+        getBlog_Samsung();
+        getBlog_Apple2();
+        getBlog_Samsung2();
+
+        getBlog_Apple3();
+        getBlog_Apple4();
+        getBlog_Samsung3();
+        getBlog_Samsung4();
+
+
+
+
+
+        function getBlog_Apple() {
+            fetch('http://localhost:3000/blog_apple/101101')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (apple) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container pt-4 ps-5">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${apple.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${apple.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${apple.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark m-5 mx-auto d-block" onclick=choose_content_apple(${apple.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+        function getBlog_Apple2() {
+            fetch('http://localhost:3000/blog_apple/101201')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (apple) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${apple.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${apple.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${apple.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark m-5 mx-auto d-block" onclick=choose_content_apple(${apple.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+        function getBlog_Apple3() {
+            fetch('http://localhost:3000/blog_apple/101301')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (apple) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${apple.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${apple.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${apple.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark m-5 mx-auto d-block" onclick=choose_content_apple(${apple.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+        function getBlog_Apple4() {
+            fetch('http://localhost:3000/blog_apple/101302')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (apple) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${apple.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${apple.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${apple.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark m-5 mx-auto d-block" onclick=choose_content_apple(${apple.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+        function getBlog_Samsung() {
+            fetch('http://localhost:3000/blog_sumsung/102101')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (samsung) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${samsung.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${samsung.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${samsung.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark mb-1 mx-auto d-block" onclick=choose_content_samsung(${samsung.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+        }
+
+        function getBlog_Samsung2() {
+            fetch('http://localhost:3000/blog_sumsung/102301')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (samsung) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${samsung.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${samsung.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${samsung.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark mb-3 mx-auto d-block" onclick=choose_content_samsung(${samsung.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+        function getBlog_Samsung3() {
+            fetch('http://localhost:3000/blog_sumsung/102202')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (samsung) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${samsung.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${samsung.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${samsung.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark mb-3 mx-auto d-block" onclick=choose_content_samsung(${samsung.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+        }
+
+
+        function getBlog_Samsung4() {
+            fetch('http://localhost:3000/blog_sumsung/102201')
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw Error('Bad response');
+                })
+
+                .then(function (data) {
+                    console.log(data);
+
+                    data.forEach(function (samsung) {
+                        let blog = '';
+                        const blog_a = document.createElement('div');
+
+                        blog += `<div class="container  pt-4 ps-5 ">`;
+                        blog += `<div class="card " style="width:400px;height:750px">`;
+                        blog += `<img class="card-img-top" src="/img/${samsung.imgblock}" alt="Card image" style="width:100%">`;
+                        blog += `<div class="card-body">`;
+                        blog += `<h4 class="card-title">${samsung.topic}</h4>`;
+                        blog += `<p class="card-text pt-2 text">${samsung.data_short}</p>`;
+                        blog += `<button type="button" class="btn btn-dark m-5 mx-auto d-block" onclick=choose_content_samsung(${samsung.id_block})>Select</button> </div></div></div>`;
+
+
+                        blog_a.innerHTML = blog;
+                        blog_space.append(blog_a);
+                    });
+
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+
+
+        }
+
+
+
+        
+
+
+
+
+
+        //---------------choose blog-----------------
+
+        function choose_content_apple(id) {
+
+
+            sessionStorage.getID_content_apple = id;
+            console.log(sessionStorage.getID_content_apple);
+            window.location.href = "/content_review_apple"
+
+        }
+
+
+
+        //---------------choose blog-----------------
+
+        function choose_content_samsung(id) {
+
+
+            sessionStorage.getID_content_samsung = id;
+            console.log(sessionStorage.getID_content_samsung);
+            window.location.href = "/content_review_samsung"
+
+        }
+
+
+
+    </script>
+ -->
+
+
+
+
+
+</body>
+
+</html>

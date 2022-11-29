@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+  <title>Register</title>
+
+  <style>
+    body {
+      background-image: linear-gradient(135deg, #cf8f17 10%, #1904E5 100%);
+      background-size: cover;
+    }
+
+    canvas {
+      position: absolute;
+      width: 1204px;
+      height: 826px;
+      left: 118px;
+      top: 99px;
+      background-color: rgb(115, 77, 27);
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+
+    #example1 {
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+
+    .font15 {
+      font-family: 'Inter';
+      font-size: 20px;
+      color: #B0B0B0;
+      font-weight: bold;
+    }
+
+
+    .font_create {
+      font-family: 'Inter';
+      font-size: 44px;
+      color: black;
+      font-weight: bold;
+
+    }
+
+    .font_normal {
+      font-family: 'Inter';
+      font-size: 15px;
+      color: #B0B0B0;
+      font-weight: bold;
+
+    }
+
+    .font_login {
+      font-family: 'Inter';
+      font-size: 15px;
+      color: #1F70BA;
+      font-weight: bold;
+
+    }
+
+    .font_form {
+      font-family: 'Inter';
+      font-size: 15px;
+      color: dark;
+    }
+
+
+    .input_box {
+      border: 2px solid red;
+      padding: 10px;
+      border-radius: 25px;
+    }
+
+    .bg-image {
+      /* The image used */
+      background-image: url("pic.jpg");
+
+      /* Add the blur effect */
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .text_login {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-image"></div>
+
+  <div class="container-sm">
+    <div class="card  " style="height:700px; margin-top: 10%;">
+      <div class="card-body">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+          <div class="container-fluid">
+            <img src="/public/logo.png" alt="Norway" style="width:3%" class="ms-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link ms-4 " aria-current="page" href="login.html">Log in</a>
+                <a class="nav-link active ms-3" href="#">Register</a>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <p class="font15 ms-4 mt-5 ">START FOR FREE</p>
+            <h2 class="class= card-title ms-4 font_create">Create new account</h4>
+              <p class="ms-4 font_normal">Already A Member?</p>
+              <a class="nav-link ms-4 font_login" aria-current="page" href="login.html">Log in</a>
+
+
+              <form class="ms-4 mt-5" novalidate id="formUsers" method="post">
+                <!-- action="/register" method="POST"-->
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row mb-4">
+                  <div class="col">
+                    <div class="form-outline ">
+
+                      <input type="text" id="firstname" class="form-control" name="firstname" placeholder="firstname"
+                        style=" box-shadow: 3px 3px #e3e3e3;" />
+
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-outline">
+
+                      <input type="text" id="lastname" class="form-control" name="lastname" placeholder="lastname"
+                        style=" box-shadow: 3px 3px #e3e3e3;" />
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="Email" class="form-control" name="Email" placeholder="email address"
+                    style=" box-shadow: 3px 3px #e3e3e3;" />
+
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+
+                  <input type="password" id="password" class="form-control" name="password" placeholder="password"
+                    style=" box-shadow: 3px 3px #e3e3e3;" />
+
+                </div>
+
+
+                <!-- Submit button -->
+
+                <button type="submit" class="btn btn-warning"
+                    style="margin-left: 4%; margin-top: 15%; width: 90%;"> Create
+                    account</button>
+              </form>
+          </div>
+
+          <div class="col-sm-6 mt-2">
+            <img alt="Card image cap" src="/public/pic.jpg" id="example1">
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+  <script>
+    // var action = 'add';
+    // var editID = 0;
+    // getUsers();
+
+    // -----add new users
+
+    // const formUsers = document.querySelector('#formUsers');
+    // function creataccount() {
+    // action = 'add';
+    // formUsers.reset();
+
+
+    // add or edit
+  //   formUsers.onsubmit = function (event) {
+  //     event.preventDefault();
+  //     const firstname = formUsers.elements['firstname'].value;
+  //     const lastname = formUsers.elements['lastname'].value;
+  //     const Email = formUsers.elements['Email'].value;
+  //     const password = formUsers.elements['password'].value;
+  //     let url = '/register';
+  //     let httpMethod = 'POST';
+  //     let bodyContent = JSON.stringify(
+  //       { "firstname": firstname, "lastname": lastname, "Email": Email, "password": password }
+  //     );
+  //     fetch(url, {
+  //       method: httpMethod,
+  //       headers: { "Content-Type": "application/json" },
+  //       body: bodyContent
+  //     })
+  //       .then(function (response) {
+  //         if (response.ok) {
+  //           // formUsers.reset();
+  //           // Swal.fire({
+  //           //   icon: 'success',
+  //           //   title: Success,
+  //           //   text: ' Register complete'
+  //           //  })
+  //           //   .then(function (result) {
+  //           //     get updated data
+  //           //     getUsers();
+  //           //   });
+  //           // console.log(response);
+  //           window.location.replace('/login')
+  //         }
+  //         else {
+  //           throw Error('Bad response');
+  //         }
+  //       })
+  //       .catch(function (err) {
+  //         console.error(err);
+  //         alert(err);
+  //       });
+  //   }
+  //   // }
+
+  // </script>
+
+
+</body>
+
+</html>

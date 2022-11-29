@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+    <title>Home page</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Here we will use form submission -->
+        <form id="formLogin">
+            <input type="text" class="form-control my-2" placeholder="Username" name="txtUsername">
+            <input type="password" class="form-control mb-2" placeholder="Password" name="txtPassword">
+            <button type="submit" class="btn btn-primary my-2">Sign in</button>
+        </form>
+    </div>
+
+    <script>
+        const formLogin = document.querySelector('#formLogin');
+        // when click sign in button or submit form
+        formLogin.onsubmit = function (e) {
+            e.preventDefault();
+            // get login form            
+            // get username and password
+            const username = formLogin.elements['txtUsername'].value;
+            const password = formLogin.elements['txtPassword'].value;
+            // console.log(username, password);
+            const options = {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "username": username, "password": password }),
+            }
+            fetch('/login', options)
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw Error("Wrong username or password");
+                })
+                .then(function (data) {
+                    // forward to welcome page
+                    location.replace(data);
+                })
+                .catch(function (error) {                    
+                    Swal.fire({
+                        "icon": "error",
+                        "title": error
+                    })
+                });
+        }
+    </script>
+</body>
+
+</html>

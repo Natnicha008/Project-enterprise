@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.5/dist/sweetalert2.all.min.js"></script>
+    <title>Categories</title>
+
+
+
+    <style>
+        .myButton {
+            background: url(/public/Rectangle.png) no-repeat;
+            cursor: pointer;
+            border: none;
+            width: 100px;
+            height: 100px;
+        }
+
+        body {
+            background-color: #F1EAE0;
+        }
+
+        .block {
+            position: absolute;
+            width: 1318px;
+            height: 755px;
+            left: 61px;
+            top: 207px;
+            background: #F9F9F9;
+            box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 15px;
+        }
+
+        .float {
+            position: absolute;
+        }
+
+        .content-name {
+            margin-bottom: 20px;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <!-- Nav bar -->
+        <!-- Image and text -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/logo.png" class="me-2" height="50px" alt="MDB Logo" loading="lazy" />
+                    <small>WORLD REViEW</small>
+                </a>
+                <div>
+                    <a class="me-1" type="button" href="#"><img src="/public/categories.png"></a>
+                </div>
+            </div>
+        </nav>
+        </nav>
+    </div>
+
+
+    <div class="card" >
+        <form class="p-3 " id="Usersblog" >
+            <label for="content_name">Content name</label>
+            <input type="text" class="form-control content-name" id="content_name">
+            <textarea class="form-control" id="content" rows="22"></textarea>
+            <!-- <a href="home.html"><input type="image"  src="/public/Rectangle.png" class="ms-3 float-end" width="80px"></a> -->
+            <a href="/views/home.html"><button type="button" class="btn btn-info" >Submit</button></a> 
+
+    </div>
+    <!-- upload image -->
+    <!-- <script>
+        function tohome(){
+            window.location.replace('/home.html');
+        }
+    </script> -->
+
+
+
+    <!-- <script>
+        const formUsers = document.querySelector('#Usersblog');
+
+        // add or edit
+        formUsers.onsubmit = function (event) {
+            event.preventDefault();
+            const content_name = formUsers.elements['content_name'].value;
+            const content = formUsers.elements['content'].value;
+
+            let url = '/review';
+            let httpMethod = 'POST';
+            let bodyContent = JSON.stringify(
+                { "content_name": content_name, "content": content, }
+            );
+            fetch(url, {
+                method: httpMethod,
+                headers: { "Content-Type": "application/json" },
+                body: bodyContent
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'success',
+                            text: "Review complete",
+
+                        })
+
+                        // window.location.replace('/login')
+                    }
+                    else {
+                        throw Error('Bad response');
+                    }
+                })
+                .catch(function (err) {
+                    console.error(err);
+                    alert(err);
+                });
+        }
+    // }
+
+
+
+    </script> -->
+
+
+</body>
+
+</html>
